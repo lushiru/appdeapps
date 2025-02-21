@@ -22,7 +22,7 @@
       },
       "versionCode": 1,
       "permissions": ["android.permission.INTERNET"],
-      "package": "cl.paginaslm.appdeapps"
+      "package": "com.paginaslm.appdeapps"
     },
     "web": {
       "favicon": "./assets/favicon.png"

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { storageCrtl } from "../api/storage";
-import { userCtrl } from "../api/user";
+//import { storageCrtl } from "../api/storage";
+//import { userCtrl } from "../api/user";
 import { AuthScreen } from "../screens/Auth/AuthScreen";
 import { AppNavigation } from "./AppNavigation";
 import { Text } from "react-native-paper";
@@ -8,13 +8,13 @@ import { Text } from "react-native-paper";
 export function RootNavigation() {
 
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     /*useEffect(() => {
         retrieveSession();
     }, []);*/
 
-    const retrieveSession = async () => {
+    /*const retrieveSession = async () => {
         const token = await storageCrtl.getToken();
 
         if (!token) {
@@ -35,7 +35,7 @@ export function RootNavigation() {
           setUser(null);
           setLoading(false);
         }
-      };
+      };*/
 
     if(loading) return <Text>Cargando!!</Text>
 
