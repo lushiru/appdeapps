@@ -22,7 +22,9 @@ export function AuthProvider(props) {
       setLoading(false);
       return;
     }else{    
-      await login(token);
+      setLoading(false);
+      return
+      //await login(token);
     }    
   };
 
