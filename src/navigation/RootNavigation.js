@@ -10,9 +10,9 @@ export function RootNavigation() {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
+    /*useEffect(() => {
         retrieveSession();
-    }, []);
+    }, []);*/
 
     const retrieveSession = async () => {
         const token = await storageCrtl.getToken();

@@ -2,7 +2,7 @@ import { View, Text,ToastAndroid } from "react-native";
 import { TextInput, Button } from "react-native-paper";
 import { authCtrl } from "../../../api/auth";
 import { form } from "../../../styles/form";
-import { storageCrtl } from "../../../api/storage";
+//import { storageCrtl } from "../../../api/storage";
 import { styles } from "./LoginForm.styles";
 import { useState } from "react";
 
@@ -42,7 +42,7 @@ export function LoginForm(props) {
       }
       if(response.message == "se ha identificado correctamente"){
         ToastAndroid.show( "Se ha logeado correctamente" , ToastAndroid.SHORT);
-          await storageCrtl.setToken(response.token);
+          //await storageCrtl.setToken(response.token);
           changeUser(true);
       }
 
