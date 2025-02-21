@@ -20,6 +20,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
+      "versionCode": 1,
       "permissions": ["android.permission.INTERNET"],
       "package": "cl.paginaslm.appdeapps"
     },
