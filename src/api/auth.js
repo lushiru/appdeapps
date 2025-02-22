@@ -1,74 +1,80 @@
 import { ENV } from "../utils/constants";
-import axios from "axios";
 
 async function register(name,email,password,password_confirmation) {
 
-  const url = `${ENV.API_URL}/${ENV.ENDPOINTS.REGISTER}`;
-
   try {
-    const res = await axios.post(url, {
-        name: name,
-        email: email,
-        password: password,
-        password_confirmation: password_confirmation
-    },{
+    const url = `${ENV.API_URL}/${ENV.ENDPOINTS.REGISTER}`;
+    const params = {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
-      }
-    });
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+        password_confirmation
+      }),
+    };
 
-    
-      if (res.status !== 200) throw res;
-      
-      return res;
+    const response = await fetch(url, params);
+
+    if (response.status !== 200) throw response;
+
+    return await response.json();
+  } catch (error) {
+    throw error;
   }
-  catch(error){
-    console.error(error);
-  }  
              
 }
 
 
 async function login(email, password) {
   
-  const url = `${ENV.API_URL}/${ENV.ENDPOINTS.LOGIN}`;
   try {
+    const url = `${ENV.API_URL}/${ENV.ENDPOINTS.LOGIN}`;
+    const params = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    };
 
-      const res = await axios.post(url, {
-        email: email,
-        password: password,
-      },{
-        headers: {
-         "Content-Type": "application/json",
-        }
-      })
-      
-      return res.data
+    const response = await fetch(url, params);
 
-    }catch(error){
-      console.error(error);
-    } 
+    if (response.status !== 200) throw response;
+    return  await response.json();
+  } catch (error) {
+    throw error;
+  }
 
 }
 
 async function forgot(email) {
   
-  const url = `${ENV.API_URL}/${ENV.ENDPOINTS.FORGOT}`;
-  try{
+  try {
+    const url = `${ENV.API_URL}/${ENV.ENDPOINTS.FORGOT}`;
+    const params = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+      }),
+    };
 
-      const res = await axios.post(url, {
-        email: email,
-      },{
-        headers: {
-          "Content-Type": "application/json",
-        }
-      })
-      
-      return res.data
+    const response = await fetch(url, params);
 
-    }catch(error){
-      console.error(error);
-    } 
+    if (response.status !== 200) throw response;
+    return await response.json();
+  } catch (error) {
+    throw error;
+  }
 
 }
 
