@@ -1,9 +1,9 @@
-import { View, KeyboardAvoidingView, Platform } from "react-native";
+//import { View, KeyboardAvoidingView, Platform } from "react-native";
 import { useState } from "react";
 import { LoginForm } from "../../components/Auth/LoginForm/LoginForm";
-import { RegisterForm } from "../../components/Auth/RegisterForm/RegisterForm";
+/*import { RegisterForm } from "../../components/Auth/RegisterForm/RegisterForm";
 import { ForgotForm } from "../../components/Auth/ForgotForm/ForgotForm";
-import { styles } from "./AuthScreen.styles";
+import { styles } from "./AuthScreen.styles";*/
 
 export function AuthScreen(props) {
 
@@ -15,7 +15,7 @@ export function AuthScreen(props) {
   const onShowLoginRegister = () => setShowLogin((prevState) => !prevState);
   const onShowLoginForgot = () => setShowLoginForgot((prevState) => !prevState);
 
-  return (
+  /*return (
     <View style={styles.container}>
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -27,5 +27,8 @@ export function AuthScreen(props) {
         )}
       </KeyboardAvoidingView>
     </View>
-  );
+  );*/
+
+  return <LoginForm showRegister={onShowLoginRegister} showForgot={onShowLoginForgot} changeUser={changeUser} />
+
 }
